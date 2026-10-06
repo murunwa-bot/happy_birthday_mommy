@@ -1370,6 +1370,7 @@ button:hover {
 .final-message.show {
     animation:
         finalReveal 1s ease forwards,
+       
         messageGlow 2s ease-in-out 1s infinite alternate;
 }
 
