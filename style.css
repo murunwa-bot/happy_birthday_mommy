@@ -1,0 +1,1387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.welcome-screen {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    position: relative;
+}
+
+.content {
+    max-width: 700px;
+    padding: 30px;
+
+    animation: fadeIn 2s ease;
+}
+
+.small-text {
+    font-size: 18px;
+    color: #006d77;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1.05;
+
+    color: #004f56;
+
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    color: #005f68;
+
+    margin-bottom: 40px;
+}
+
+button {
+    border: none;
+
+    padding: 17px 32px;
+
+    border-radius: 50px;
+
+    background: #006d77;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0, 77, 86, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    background: #004f56;
+
+    box-shadow: 0 15px 30px rgba(0, 77, 86, 0.35);
+}
+
+
+/* ✨ Sparkles */
+
+.sparkle {
+    position: absolute;
+
+    color: white;
+
+    font-size: 35px;
+
+    animation: sparkle 2s infinite ease-in-out;
+
+    text-shadow: 0 0 15px white;
+}
+
+.sparkle-one {
+    top: 20%;
+    left: 15%;
+}
+
+.sparkle-two {
+    top: 30%;
+    right: 15%;
+
+    animation-delay: 0.5s;
+}
+
+.sparkle-three {
+    bottom: 20%;
+    left: 25%;
+
+    animation-delay: 1s;
+}
+
+
+/* 🎂 Birthday reveal */
+
+.birthday-reveal {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(0.9);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+}
+
+.birthday-reveal.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+.birthday-small {
+    font-size: 20px;
+
+    color: #e8fcff;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.birthday-reveal h2 {
+    font-size: clamp(50px, 8vw, 90px);
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 4px 15px rgba(0, 77, 86, 0.3);
+}
+
+.birthday-message {
+    max-width: 600px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #e8fcff;
+}
+
+.confetti {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    animation: celebration 1s infinite alternate;
+}
+
+.heart {
+    font-size: 70px;
+
+    color: white;
+
+    margin-top: 30px;
+
+    animation: heartbeat 1.2s infinite;
+
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+
+/* ✨ Animations */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes celebration {
+
+    from {
+        transform: rotate(-8deg) scale(1);
+    }
+
+    to {
+        transform: rotate(8deg) scale(1.2);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* 🫧 Floating birthday elements */
+
+.floating-elements {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.floating-elements span {
+    position: absolute;
+
+    bottom: -50px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 30px;
+
+    animation: floatUp 10s linear infinite;
+}
+
+
+/* Different positions and speeds */
+
+.floating-elements span:nth-child(1) {
+    left: 8%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.floating-elements span:nth-child(2) {
+    left: 20%;
+    animation-delay: 4s;
+    animation-duration: 12s;
+}
+
+.floating-elements span:nth-child(3) {
+    left: 35%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.floating-elements span:nth-child(4) {
+    left: 50%;
+    animation-delay: 6s;
+    animation-duration: 13s;
+}
+
+.floating-elements span:nth-child(5) {
+    left: 65%;
+    animation-delay: 3s;
+    animation-duration: 9s;
+}
+
+.floating-elements span:nth-child(6) {
+    left: 78%;
+    animation-delay: 7s;
+    animation-duration: 11s;
+}
+
+.floating-elements span:nth-child(7) {
+    left: 88%;
+    animation-delay: 5s;
+    animation-duration: 10s;
+}
+
+.floating-elements span:nth-child(8) {
+    left: 95%;
+    animation-delay: 8s;
+    animation-duration: 12s;
+}
+
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50vh) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+/* ✨ Magical transition */
+
+.welcome-screen.celebrating .content {
+    animation: disappear 1s ease forwards;
+}
+
+.welcome-screen.celebrating .floating-elements span {
+    animation-duration: 2s;
+}
+
+.welcome-screen.celebrating::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation: flash 1.2s ease;
+}
+
+@keyframes disappear {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+
+}
+
+@keyframes flash {
+
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* 💌 Letter Section */
+
+.letter-section {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 30;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+
+    overflow-y: auto;
+}
+
+.letter-section.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+.letter-container {
+    width: min(700px, 100%);
+
+    text-align: center;
+}
+
+.section-label {
+    font-family: Arial, sans-serif;
+
+    color: #e8fcff;
+
+    letter-spacing: 3px;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+
+.letter-container h2 {
+    color: white;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    margin-bottom: 25px;
+}
+
+.letter {
+    background: rgba(255, 255, 255, 0.92);
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    text-align: left;
+
+    box-shadow:
+        0 20px 50px rgba(0, 77, 86, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    font-family: Georgia, serif;
+
+    color: #285b63;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.letter p {
+    margin-bottom: 22px;
+}
+
+.signature {
+    text-align: right;
+
+    color: #006d77;
+
+    font-weight: bold;
+
+    margin-top: 30px;
+}
+
+#letterButton {
+    margin-top: 15px;
+
+    background: white;
+
+    color: #006d77;
+}
+
+#letterButton:hover {
+    background: #e8fcff;
+}
+
+/* 🎊 Confetti */
+
+.confetti-container {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.confetti-piece {
+    position: absolute;
+
+    width: 10px;
+    height: 18px;
+
+    top: -30px;
+
+    opacity: 0;
+
+    animation: confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* 💌 Physical Letter */
+
+.letter-container {
+    width: min(700px, 100%);
+    text-align: center;
+    perspective: 1200px;
+}
+
+.letter {
+    background: #ffffff;
+
+    padding: 50px 45px;
+
+    border-radius: 8px;
+
+    text-align: left;
+
+    box-shadow:
+        0 20px 50px rgba(0, 80, 90, 0.25),
+        0 5px 15px rgba(0, 80, 90, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    font-family: Georgia, serif;
+
+    color: #285b63;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    /* Starting position */
+
+    transform-origin: top center;
+
+    transform: rotateX(-90deg);
+
+    opacity: 0;
+}
+
+
+/* ✨ Only animate when the letter section opens */
+
+.letter-section.show .letter {
+    animation: letterOpen 1.5s ease-out forwards;
+}
+
+
+@keyframes letterOpen {
+
+    0% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: rotateX(25deg);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: rotateX(-8deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+
+}
+
+/* 📸 Memories Section */
+
+.memories-section {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 40;
+
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    overflow-y: auto;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+}
+
+.memories-section.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+.memories-container {
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.memories-container h2 {
+    color: white;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    margin-bottom: 15px;
+}
+
+
+.memories-intro {
+    font-family: Arial, sans-serif;
+
+    color: #e8fcff;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* 🖼️ Memory cards */
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.92);
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 77, 86, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.memory-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+
+    box-shadow:
+        0 20px 40px rgba(0, 77, 86, 0.3);
+}
+
+
+.photo-placeholder {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #caf0f8;
+
+    border-radius: 15px;
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+
+.memory-card p {
+    font-family: Arial, sans-serif;
+
+    color: #006d77;
+
+    font-weight: bold;
+
+    padding-bottom: 5px;
+}
+
+/* 📱 Mobile Memories */
+
+@media (max-width: 600px) {
+
+    .memories-section {
+        padding: 40px 18px;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .memory-card {
+        max-width: 350px;
+
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+}
+/* 📸 Memories Button */
+
+#memoriesButton {
+    display: block;
+
+    margin: 30px auto 0;
+
+    background: #006d77;
+
+    color: white;
+}
+
+#memoriesButton:hover {
+    background: #004f56;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+/* 🌷 You Deserve Section */
+
+.deserve-section {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 50;
+
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    overflow-y: auto;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+}
+
+.deserve-section.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+.deserve-container {
+    width: min(850px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.deserve-container h2 {
+    color: white;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    margin-bottom: 20px;
+}
+
+
+.deserve-message {
+    font-family: Arial, sans-serif;
+
+    color: #e8fcff;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+.deserve-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.deserve-card {
+    background: rgba(255, 255, 255, 0.92);
+
+    padding: 25px 18px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 77, 86, 0.2);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.deserve-card:hover {
+    transform: translateY(-8px);
+}
+
+
+.deserve-card span {
+    font-size: 40px;
+
+    display: block;
+
+    margin-bottom: 12px;
+}
+
+
+.deserve-card h3 {
+    color: #006d77;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+.deserve-card p {
+    font-family: Arial, sans-serif;
+
+    color: #285b63;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 600px) {
+
+    .deserve-section {
+        padding: 40px 18px;
+    }
+
+    .deserve-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .deserve-card {
+        padding: 22px 12px;
+    }
+
+}
+
+/* 🌷 Deserve Button */
+
+#deserveButton {
+    margin-top: 35px;
+
+    background: white;
+
+    color: #006d77;
+}
+
+#deserveButton:hover {
+    background: #e8fcff;
+}
+
+/* 🎁 Final Surprise */
+
+.final-section {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 60;
+
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #caf0f8,
+        #90e0ef,
+        #48cae4,
+        #0a9396
+    );
+
+    overflow-y: auto;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(0.95);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+}
+
+.final-section.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+
+.final-container {
+    width: min(700px, 100%);
+}
+
+
+.final-container h2 {
+    color: white;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    margin-bottom: 20px;
+}
+
+
+.final-intro {
+    color: #e8fcff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+#finalButton {
+    background: white;
+
+    color: #006d77;
+
+    font-size: 18px;
+
+    padding: 18px 30px;
+}
+
+
+#finalButton:hover {
+    background: #e8fcff;
+
+    transform: translateY(-4px) scale(1.03);
+}
+
+
+/* 💙 Hidden final message */
+
+.final-message {
+    display: none;
+
+    margin-top: 40px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 77, 86, 0.3);
+
+    animation: finalReveal 1s ease forwards;
+}
+
+
+.final-message.show {
+    display: block;
+}
+
+
+.final-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+
+.final-message h3 {
+    color: #006d77;
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+
+.final-message p {
+    color: #285b63;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+.final-message .final-love {
+    color: #006d77;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-top: 25px;
+}
+
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 600px) {
+
+    .final-section {
+        padding: 35px 18px;
+    }
+
+    .final-message {
+        padding: 30px 20px;
+    }
+
+    .final-message h3 {
+        font-size: 27px;
+    }
+
+}
+
+/* 🎁 Final Section Button */
+
+#finalSectionButton {
+    margin-top: 40px;
+
+    background: white;
+
+    color: #006d77;
+}
+
+#finalSectionButton:hover {
+    background: #e8fcff;
+}
+
+/* Fireworks */
+
+.fireworks-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 15px #48cae4;
+    animation: fireworkBurst 1s ease-out forwards;
+}
+
+@keyframes fireworkBurst {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(25);
+        opacity: 0;
+    }
+}
+
+.firework-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px currentColor;
+    animation: particleExplosion 1.2s ease-out forwards;
+}
+
+@keyframes particleExplosion {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Final Celebration */
+
+.celebration-piece {
+    position: fixed;
+    pointer-events: none;
+    z-index: 110;
+    font-size: 25px;
+    animation: celebrationFloat 3s ease-out forwards;
+}
+
+@keyframes celebrationFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5) rotate(0deg);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-250px)
+            scale(1.3)
+            rotate(180deg);
+    }
+}
+
+.final-section.celebrating {
+    animation: finalGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes finalGlow {
+    from {
+        box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    to {
+        box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.35);
+    }
+}
+
+.final-message.show {
+    animation:
+        finalReveal 1s ease forwards,
+        messageGlow 2s ease-in-out 1s infinite alternate;
+}
+
+@keyframes messageGlow {
+    from {
+        box-shadow:
+            0 20px 50px rgba(0, 77, 86, 0.3);
+    }
+
+    to {
+        box-shadow:
+            0 20px 60px rgba(255, 255, 255, 0.65);
+    }
+}
+
